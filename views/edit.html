@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Gunadarma</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+
+    <!--Style-->
+    <style>
+      /*import text */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+      /*deklarasi warna*/
+      :root {
+        --abu: #2f2e41;
+        --black: #000000;
+      }
+
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+      }
+      .container {
+        max-width: 550px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h3>Ubah Data Pasien</h3>
+      <a href="/nilai-mahasiswa" class="btn btn-sm btn-primary">Lihat Data</a>
+      <hr />
+      <p>Pertemuan : {{.mahasiswa.Pert}}</p>
+      <p>Nama : {{.mahasiswa.Nama}}</p>
+      <p>NPM : {{.mahasiswa.NPM}}</p>
+      <p>Kelas : {{.mahasiswa.Kelas}}</p>
+      <form action="/nilai-mahasiswa/edit-nilai" method="post">
+        <div class="form-group">
+          <label for="uts">Nilai UTS</label>
+          <input type="text" name="uts" class="form-control input" id="uts" placeholder="1-100" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label for="uas">Nilai UAS</label>
+          <input type="text" name="uas" class="form-control input" id="uas" placeholder="1-100" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <input type="hidden" name="pert" value="{{ .mahasiswa.Pert }}" />
+          <input type="hidden" name="no" value="{{ .mahasiswa.No }}" />
+          <button class="btn btn-primary btn-block" type="submit">Ubah Data</button>
+        </div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
